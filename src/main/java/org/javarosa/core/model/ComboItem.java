@@ -30,8 +30,10 @@ public class ComboItem {
 
     @Override
     public boolean equals(Object obj) {
-        ComboItem comboItem = (ComboItem)obj;
-        return comboItem.getDisplayText().equals(displayText) && comboItem.getValue().equals(value) &&
-                comboItem.getSelectChoiceIndex() == selectChoiceIndex;
+        if (obj instanceof ComboItem comboItem) {
+            return comboItem.getDisplayText().equals(displayText) && comboItem.getValue().equals(value) &&
+                    comboItem.getSelectChoiceIndex() == selectChoiceIndex;
+        }
+        return false;
     }
 }
