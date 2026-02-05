@@ -1,5 +1,8 @@
 package org.javarosa.core.model;
 
+/**
+ * Class to represent a combo box item for ComboboxAdapters
+ */
 public class ComboItem {
     private String displayText;
     private String value;
