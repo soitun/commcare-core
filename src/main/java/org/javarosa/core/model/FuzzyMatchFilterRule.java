@@ -18,7 +18,7 @@ public class FuzzyMatchFilterRule implements ComboboxFilterRule {
 
     @Override
     public boolean choiceShouldBeShown(ComboItem choice, CharSequence textEntered) {
-        if ("".equals(textEntered) || textEntered == null) {
+        if (textEntered == null || "".contentEquals(textEntered)) {
             return true;
         }
 

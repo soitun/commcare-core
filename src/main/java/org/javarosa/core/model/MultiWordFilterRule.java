@@ -21,7 +21,7 @@ public class MultiWordFilterRule implements ComboboxFilterRule {
      * textEntered are obtained by splitting textEntered on " ")
      */
     public boolean choiceShouldBeShown(ComboItem choice, CharSequence textEntered) {
-        if ("".equals(textEntered) || textEntered == null) {
+        if (textEntered == null || "".contentEquals(textEntered)) {
             return true;
         }
         String choiceLowerCase = choice.getDisplayText().toLowerCase();
