@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - 'commcare_*'
+  workflow_dispatch:
 
 jobs:
   release:
