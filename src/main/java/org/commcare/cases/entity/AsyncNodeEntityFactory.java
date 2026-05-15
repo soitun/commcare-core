@@ -172,13 +172,15 @@ public class AsyncNodeEntityFactory extends NodeEntityFactory {
     // Old cache and index pathway where we only cache sort fields
     @Deprecated
     protected void setUnCachedDataOld(List<Entity<TreeReference>> entities) {
-        for (int i = 0; i < entities.size(); i++) {
-            if (isCancelled) return;
-            AsyncEntity e = (AsyncEntity)entities.get(i);
-            for (int col = 0; col < e.getNumFields(); ++col) {
+        if (mEntityCache != null) {
+            for (int i = 0; i < entities.size(); i++) {
+                if (isCancelled) return;
+                AsyncEntity e = (AsyncEntity) entities.get(i);
+                for (int col = 0; col < e.getNumFields(); ++col) {
                     e.getSortField(col);
+                }
+                updateProgress(PHASE_UNCACHED_CALCULATION, i, entities.size());
             }
-            updateProgress(PHASE_UNCACHED_CALCULATION, i, entities.size());
         }
     }
 
