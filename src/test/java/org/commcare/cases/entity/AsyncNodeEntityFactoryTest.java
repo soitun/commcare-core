@@ -17,7 +17,7 @@ import java.util.Vector;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Regression test for USH-6551: sort field expressions must not be evaluated during the cache
+ * Regression test: sort field expressions must not be evaluated during the cache
  * priming loop when no EntityStorageCache is present (formplayer always passes null).
  *
  * Before the fix, setUnCachedDataOld iterated every entity × every column and called
